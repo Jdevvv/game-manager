@@ -1,0 +1,23 @@
+<form>
+	<ul class="form-style">
+			<button>Filter</button>
+			<button>RAZ</button>
+			<li>
+			<label>Nom du jeu</label>
+			<input type="text" class="field-divided"/>
+		<li>
+			<label>Subject</label>
+			<select class="field-select">
+			<option disabled>Choisi un type</option>
+			<option *ngFor="let option of options">{{option}}</option>
+			</select>
+		</li>
+		<li>
+			<label>Editeur de jeu</label>
+			<input type="text" class="field-divided"/>
+		</li>
+		<li>
+			<input type="submit" value="Submit" />
+		</li>
+	</ul>
+</form>

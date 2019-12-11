@@ -1,0 +1,17 @@
+<div class="card" *ngFor="let game of games">
+	<div class="header">
+		<img [src]="game.editorImg" alt="rounded" class="rounded_img">
+		<h4><b>{{game.name}}</b></h4>
+		<p>{{game.type}}</p>
+		<span>{{game.note}}/10</span>
+	</div>
+	<img [src]="game.gameImg" alt="main_img" class="main_img">
+	<div class="desc">
+		<p>{{truncate(game.desc)}}</p>
+	</div>
+	<div>
+		<button>Follow</button>
+		<button>Share</button>
+		<button>Buy</button>
+	</div>
+</div>

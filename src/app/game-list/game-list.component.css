@@ -1,0 +1,59 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+.card {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	transition: 0.3s;
+	width: 30%;
+	margin-left: 35%;
+	margin-top: 50px;
+}
+
+.card:hover {
+	box-shadow: 12px 12px 2px 1px rgba(0, 0, 255, .2);
+}
+
+.header {
+	padding: 15px 16px 15px 25px;
+}
+
+.rounded_img {
+	width: 10%;
+	float: left;
+	margin-right: 20px;
+}
+
+.header h4 {
+	padding-bottom: 10px;
+}
+
+.header p {
+	color: grey;
+}
+
+.header span {
+	float: right;
+	margin-top: -50px;
+}
+
+.main_img {
+	width: 100%;
+}
+
+.desc p {
+	margin: 10px 20px 20px 20px;
+}
+
+button {
+	margin: 10px 15px 10px 15px;
+	border: none;
+	padding: 8px 16px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 15px;
+	color: black;
+	text-transform: uppercase;
+}
