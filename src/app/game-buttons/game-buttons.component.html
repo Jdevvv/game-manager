@@ -1,0 +1,6 @@
+<button
+  *ngFor="let button of buttons | keyvalue"
+  (click)="onClick(button.value)"
+>
+  {{ button.value }}
+</button>

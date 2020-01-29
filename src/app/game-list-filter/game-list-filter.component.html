@@ -1,23 +1,40 @@
 <form>
-	<ul class="form-style">
-			<button>Filter</button>
-			<button>RAZ</button>
-			<li>
-			<label>Nom du jeu</label>
-			<input type="text" class="field-divided"/>
-		<li>
-			<label>Subject</label>
-			<select class="field-select">
-			<option disabled>Choisi un type</option>
-			<option *ngFor="let option of options">{{option}}</option>
-			</select>
-		</li>
-		<li>
-			<label>Editeur de jeu</label>
-			<input type="text" class="field-divided"/>
-		</li>
-		<li>
-			<input type="submit" value="Submit" />
-		</li>
-	</ul>
+  <ul class="form-style">
+    <li>
+      <label>Nom du jeu</label>
+      <input
+        type="text"
+        name="name"
+        class="field-divided"
+        [value]="form.name"
+        (change)="setValue($event.target)"
+      />
+    </li>
+    <li>
+      <label>Subject</label>
+      <select
+        name="type"
+        class="field-select"
+        [value]="form.type"
+        (change)="setValue($event.target)"
+      >
+        <option disabled>Choisi un type</option>
+        <option *ngFor="let category of categories">{{ category }}</option>
+      </select>
+    </li>
+    <li>
+      <label>Editeur de jeu</label>
+      <input
+        name="editor"
+        type="text"
+        class="field-divided"
+        [value]="form.editor"
+        (change)="setValue($event.target)"
+      />
+    </li>
+    <li>
+      <div class="button" (click)="filter()">Filter</div>
+      <div class="button" (click)="reset()">RAZ</div>
+    </li>
+  </ul>
 </form>
