@@ -15,17 +15,16 @@
     <h4>
       <b>{{ game.title }}</b>
     </h4>
-    <p *ngFor="let genre of genres">{{ game.genre }}</p>
+    <p *ngFor="let genre of genres">{{ genre.name }}</p>
     <span>{{ game.note }}/10</span>
   </div>
   <img [src]="game.coverImage" alt="main_img" class="main_img" />
   <div class="desc">
     <p>{{ truncate(game.description) }}</p>
   </div>
+  <p>{{ game.publisher.name }}</p>
+  <p>{{ game.developer.name }}</p>
   <div>
-    <app-game-buttons
-      [game]="game.name"
-      (clicked)="myAlert($event)"
-    ></app-game-buttons>
+    <button (click)="deleteGame(game.id)">Delete game</button>
   </div>
 </div>

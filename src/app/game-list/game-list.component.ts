@@ -47,7 +47,13 @@ export class GameListComponent implements OnInit {
     })
   }
 
+  deleteGame(id: number) {
+    console.log(`deleting game id ${id}`)
+    this.gameApi.deleteGame(id)
+  }
+
   ngOnInit() {
     this.getGames();
+    console.log(this.games)
   }
 }

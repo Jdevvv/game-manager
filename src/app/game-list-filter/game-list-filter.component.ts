@@ -40,6 +40,7 @@ export class GameListFilterComponent implements OnInit {
   getCategories() {
     this.gameApi.getAllCategories().subscribe((data: Categories[]) => {
       this.categories = data;
+      this.reset()
     })
   }
 
