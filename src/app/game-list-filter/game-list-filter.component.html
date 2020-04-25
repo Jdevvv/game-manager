@@ -19,7 +19,7 @@
         (change)="setValue($event.target)"
       >
         <option disabled>Choisi un type</option>
-        <option *ngFor="let category of categories">{{ category }}</option>
+        <option *ngFor="let category of categories" [value]="category.id">{{ category.name }}</option>
       </select>
     </li>
     <li>

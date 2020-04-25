@@ -1,18 +1,20 @@
 import { Component, OnInit, Input, Output, EventEmitter } from "@angular/core";
+import { Categories } from '../interface/categories';
+import { GameApiService } from '../service/game-api.service';
 
 @Component({
   selector: "app-game-list-filter",
   templateUrl: "./game-list-filter.component.html",
   styleUrls: ["./game-list-filter.component.css"]
 })
+
 export class GameListFilterComponent implements OnInit {
   @Input() color: string;
-  @Input() categories = ["RPG", "action", "shooter", "plateform", "combat"];
+  categories: Categories[];
+
   @Output() filtered = new EventEmitter();
 
-  constructor() {}
-
-  ngOnInit() {}
+  constructor(private gameApi: GameApiService) {}
 
   form = {
     name: "",
@@ -33,5 +35,15 @@ export class GameListFilterComponent implements OnInit {
       this.form[key] = "";
     });
     this.filtered.emit(this.form);
+  }
+
+  getCategories() {
+    this.gameApi.getAllCategories().subscribe((data: Categories[]) => {
+      this.categories = data;
+    })
+  }
+
+  ngOnInit() {
+    this.getCategories();
   }
 }

@@ -11,16 +11,16 @@
   [style.width.px]="newCardWidth"
 >
   <div class="header">
-    <img [src]="game.editorImg" alt="rounded" class="rounded_img" />
+    <img [src]="game.coverImage" alt="rounded" class="rounded_img" />
     <h4>
-      <b>{{ game.name }}</b>
+      <b>{{ game.title }}</b>
     </h4>
-    <p>{{ game.type }}</p>
+    <p *ngFor="let genre of genres">{{ game.genre }}</p>
     <span>{{ game.note }}/10</span>
   </div>
-  <img [src]="game.gameImg" alt="main_img" class="main_img" />
+  <img [src]="game.coverImage" alt="main_img" class="main_img" />
   <div class="desc">
-    <p>{{ truncate(game.desc) }}</p>
+    <p>{{ truncate(game.description) }}</p>
   </div>
   <div>
     <app-game-buttons
