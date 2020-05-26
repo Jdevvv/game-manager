@@ -1,11 +1,11 @@
 import { Component, OnInit } from "@angular/core";
-import { Games } from '../interface/games';
-import { GameApiService } from '../service/game-api.service';
+import { Games } from "../interface/games";
+import { GameApiService } from "../service/game-api.service";
 
 @Component({
   selector: "app-game-list",
   templateUrl: "./game-list.component.html",
-  styleUrls: ["./game-list.component.css"]
+  styleUrls: ["./game-list.component.css"],
 })
 export class GameListComponent implements OnInit {
   games: Games[];
@@ -13,6 +13,8 @@ export class GameListComponent implements OnInit {
 
   baseCardWidth = 450;
   newCardWidth = 450;
+
+  loading = true;
 
   constructor(private gameApi: GameApiService) {}
 
@@ -36,24 +38,24 @@ export class GameListComponent implements OnInit {
 
   filtering(form) {
     this.filteredGames = this.games
-      .filter(game => !form.name || game.title === form.name)
-      .filter(game => !form.editor || game.publisher == form.editor)
-      .filter(game => !form.type || game.genres == form.type);
+      .filter((game) => !form.name || game.title === form.name)
+      .filter((game) => !form.editor || game.publisher == form.editor)
+      .filter((game) => !form.type || game.genres == form.type);
   }
 
   getGames() {
     this.gameApi.getAllGames().subscribe((data: Games[]) => {
       this.games = data;
-    })
+      this.loading = false;
+    });
   }
 
   deleteGame(id: number) {
-    console.log(`deleting game id ${id}`)
-    this.gameApi.deleteGame(id)
+    console.log(`deleting game id ${id}`);
+    this.gameApi.deleteGame(id);
   }
 
   ngOnInit() {
     this.getGames();
-    console.log(this.games)
   }
 }

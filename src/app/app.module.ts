@@ -1,22 +1,26 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { GameListModule } from "./game-list/game-list.module";
 
-import { AppComponent } from './app.component';
-import { GameListComponent } from './game-list/game-list.component';
-import { GameListFilterComponent } from './game-list-filter/game-list-filter.component';
-import { HttpClientModule } from '@angular/common/http';
+import { AppComponent } from "./app.component";
+import { HttpClientModule } from "@angular/common/http";
+import { AppRoutingModule } from "./app-routing.module";
+import { NotFoundModule } from "./not-found/not-found.module";
+import { GameDetailsModule } from "./game-details/game-details.module";
+import { GameFormModule } from "./game-form/game-form.module";
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    GameListComponent,
-    GameListFilterComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    GameListModule,
+    AppRoutingModule,
+    NotFoundModule,
+    GameDetailsModule,
+    GameFormModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

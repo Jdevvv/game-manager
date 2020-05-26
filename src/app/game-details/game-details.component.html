@@ -1,0 +1,17 @@
+<div class="card" [style.width.px]="newCardWidth">
+  <div class="header">
+    <img [src]="gameData.coverImage" alt="rounded" class="rounded_img" />
+    <h4>
+      <b>{{ gameData.title }}</b>
+    </h4>
+    <p *ngFor="let genre of gameData.genres">{{ genre.name }}</p>
+    <span>1/10</span>
+  </div>
+  <div class="desc">
+    <p>{{ gameData.description }}</p>
+  </div>
+  <p>{{ gameData.publisher }}</p>
+  <p>{{ gameData.developer }}</p>
+
+  <button class="btn btn-warning" (click)="navigation('')">Go Back</button>
+</div>

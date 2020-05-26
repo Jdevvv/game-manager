@@ -5,10 +5,14 @@
   <button (click)="changeCardWidth('+', 10)">+</button>
   <button (click)="resetCardWidth()">Reset</button>
 </div>
+<div *ngIf="loading; else loaded">
+  Loading ...
+</div>
 <div
   class="card"
   *ngFor="let game of filteredGames"
   [style.width.px]="newCardWidth"
+  #loaded
 >
   <div class="header">
     <img [src]="game.coverImage" alt="rounded" class="rounded_img" />
